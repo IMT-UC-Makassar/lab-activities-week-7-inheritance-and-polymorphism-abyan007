@@ -1,0 +1,223 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Bank Account Test Deposit
+      id: bank-account-test-deposit
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Bank Account Test Deposit
+        setup-command: ''
+        command: gradle test --tests "oop.lab.BankAccountTest.testDeposit"
+        timeout: 10
+        max-score: 10
+    - name: Bank Account Test Withdraw Valid
+      id: bank-account-test-withdraw-valid
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Bank Account Test Withdraw Valid
+        setup-command: ''
+        command: gradle test --tests "oop.lab.BankAccountTest.testWithdrawValid"
+        timeout: 10
+        max-score: 10
+    - name: Bank Account Test Withdraw Invalid Over Balance
+      id: bank-account-test-withdraw-invalid-over-balance
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Bank Account Test Withdraw Invalid Over Balance
+        setup-command: ''
+        command: gradle test --tests "oop.lab.BankAccountTest.testWithdrawInvalid_OverBalance"
+        timeout: 10
+        max-score: 10
+    - name: Bank Account Test Calculate Interest Savings Account
+      id: bank-account-test-calculate-interest-savings-account
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Bank Account Test Calculate Interest Savings Account
+        setup-command: ''
+        command: gradle test --tests "oop.lab.BankAccountTest.testCalculateInterestSavingsAccount"
+        timeout: 10
+        max-score: 10
+    - name: Bank Account Test Calculate Interest Checking Account
+      id: bank-account-test-calculate-interest-checking-account
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Bank Account Test Calculate Interest Checking Account
+        setup-command: ''
+        command: gradle test --tests "oop.lab.BankAccountTest.testCalculateInterestCheckingAccount"
+        timeout: 10
+        max-score: 10
+    - name: Bank Account Test Calculate Interest Business Account
+      id: bank-account-test-calculate-interest-business-account
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Bank Account Test Calculate Interest Business Account
+        setup-command: ''
+        command: gradle test --tests "oop.lab.BankAccountTest.testCalculateInterestBusinessAccount"
+        timeout: 10
+        max-score: 10
+    - name: Bank Account Test Transfer Funds
+      id: bank-account-test-transfer-funds
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Bank Account Test Transfer Funds
+        setup-command: ''
+        command: gradle test --tests "oop.lab.BankAccountTest.testTransferFunds"
+        timeout: 10
+        max-score: 10
+    - name: Bank Account Test Pay Bills
+      id: bank-account-test-pay-bills
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Bank Account Test Pay Bills
+        setup-command: ''
+        command: gradle test --tests "oop.lab.BankAccountTest.testPayBills"
+        timeout: 10
+        max-score: 10
+    - name: Bank Account Test Loan Application
+      id: bank-account-test-loan-application
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Bank Account Test Loan Application
+        setup-command: ''
+        command: gradle test --tests "oop.lab.BankAccountTest.testLoanApplication"
+        timeout: 10
+        max-score: 10
+    - name: Bank Account Test Polymorphic Account Array
+      id: bank-account-test-polymorphic-account-array
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Bank Account Test Polymorphic Account Array
+        setup-command: ''
+        command: gradle test --tests "oop.lab.BankAccountTest.testPolymorphicAccountArray"
+        timeout: 10
+        max-score: 10
+    - name: Card Test Debit Card Interest Rate
+      id: card-test-debit-card-interest-rate
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Card Test Debit Card Interest Rate
+        setup-command: ''
+        command: gradle test --tests "oop.lab.CardTest.testDebitCardInterestRate"
+        timeout: 10
+        max-score: 10
+    - name: Card Test Credit Card Interest Rate
+      id: card-test-credit-card-interest-rate
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Card Test Credit Card Interest Rate
+        setup-command: ''
+        command: gradle test --tests "oop.lab.CardTest.testCreditCardInterestRate"
+        timeout: 10
+        max-score: 10
+    - name: Card Test Platinum Card Interest Rate
+      id: card-test-platinum-card-interest-rate
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Card Test Platinum Card Interest Rate
+        setup-command: ''
+        command: gradle test --tests "oop.lab.CardTest.testPlatinumCardInterestRate"
+        timeout: 10
+        max-score: 10
+    - name: Abstraction And Interface Test Savings Account Is Abstract Type
+      id: abstraction-and-interface-test-savings-account-is-abstract-type
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Abstraction And Interface Test Savings Account Is Abstract Type
+        setup-command: ''
+        command: gradle test --tests "oop.lab.AbstractionAndInterfaceTest.testSavingsAccountIsAbstractType"
+        timeout: 10
+        max-score: 10
+    - name: Abstraction And Interface Test Savings Account Implements Online Service
+      id: abstraction-and-interface-test-savings-account-implements-online-service
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Abstraction And Interface Test Savings Account Implements Online
+          Service
+        setup-command: ''
+        command: gradle test --tests "oop.lab.AbstractionAndInterfaceTest.testSavingsAccountImplementsOnlineService"
+        timeout: 10
+        max-score: 10
+    - name: Abstraction And Interface Test Checking Account Implements Online Service
+      id: abstraction-and-interface-test-checking-account-implements-online-service
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Abstraction And Interface Test Checking Account Implements Online
+          Service
+        setup-command: ''
+        command: gradle test --tests "oop.lab.AbstractionAndInterfaceTest.testCheckingAccountImplementsOnlineService"
+        timeout: 10
+        max-score: 10
+    - name: Abstraction And Interface Test Business Account Implements Loan Service
+      id: abstraction-and-interface-test-business-account-implements-loan-service
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Abstraction And Interface Test Business Account Implements Loan
+          Service
+        setup-command: ''
+        command: gradle test --tests "oop.lab.AbstractionAndInterfaceTest.testBusinessAccountImplementsLoanService"
+        timeout: 10
+        max-score: 10
+    - name: Abstraction And Interface Test Card Polymorphism
+      id: abstraction-and-interface-test-card-polymorphism
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Abstraction And Interface Test Card Polymorphism
+        setup-command: ''
+        command: gradle test --tests "oop.lab.AbstractionAndInterfaceTest.testCardPolymorphism"
+        timeout: 10
+        max-score: 10
+    - name: Abstraction And Interface Test Business Account Polymorphism
+      id: abstraction-and-interface-test-business-account-polymorphism
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Abstraction And Interface Test Business Account Polymorphism
+        setup-command: ''
+        command: gradle test --tests "oop.lab.AbstractionAndInterfaceTest.testBusinessAccountPolymorphism"
+        timeout: 10
+        max-score: 10
+    - name: Abstraction And Interface Test Interfaces With Casting
+      id: abstraction-and-interface-test-interfaces-with-casting
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Abstraction And Interface Test Interfaces With Casting
+        setup-command: ''
+        command: gradle test --tests "oop.lab.AbstractionAndInterfaceTest.testInterfacesWithCasting"
+        timeout: 10
+        max-score: 10
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        BANK-ACCOUNT-TEST-DEPOSIT_RESULTS: "${{steps.bank-account-test-deposit.outputs.result}}"
+        BANK-ACCOUNT-TEST-WITHDRAW-VALID_RESULTS: "${{steps.bank-account-test-withdraw-valid.outputs.result}}"
+        BANK-ACCOUNT-TEST-WITHDRAW-INVALID-OVER-BALANCE_RESULTS: "${{steps.bank-account-test-withdraw-invalid-over-balance.outputs.result}}"
+        BANK-ACCOUNT-TEST-CALCULATE-INTEREST-SAVINGS-ACCOUNT_RESULTS: "${{steps.bank-account-test-calculate-interest-savings-account.outputs.result}}"
+        BANK-ACCOUNT-TEST-CALCULATE-INTEREST-CHECKING-ACCOUNT_RESULTS: "${{steps.bank-account-test-calculate-interest-checking-account.outputs.result}}"
+        BANK-ACCOUNT-TEST-CALCULATE-INTEREST-BUSINESS-ACCOUNT_RESULTS: "${{steps.bank-account-test-calculate-interest-business-account.outputs.result}}"
+        BANK-ACCOUNT-TEST-TRANSFER-FUNDS_RESULTS: "${{steps.bank-account-test-transfer-funds.outputs.result}}"
+        BANK-ACCOUNT-TEST-PAY-BILLS_RESULTS: "${{steps.bank-account-test-pay-bills.outputs.result}}"
+        BANK-ACCOUNT-TEST-LOAN-APPLICATION_RESULTS: "${{steps.bank-account-test-loan-application.outputs.result}}"
+        BANK-ACCOUNT-TEST-POLYMORPHIC-ACCOUNT-ARRAY_RESULTS: "${{steps.bank-account-test-polymorphic-account-array.outputs.result}}"
+        CARD-TEST-DEBIT-CARD-INTEREST-RATE_RESULTS: "${{steps.card-test-debit-card-interest-rate.outputs.result}}"
+        CARD-TEST-CREDIT-CARD-INTEREST-RATE_RESULTS: "${{steps.card-test-credit-card-interest-rate.outputs.result}}"
+        CARD-TEST-PLATINUM-CARD-INTEREST-RATE_RESULTS: "${{steps.card-test-platinum-card-interest-rate.outputs.result}}"
+        ABSTRACTION-AND-INTERFACE-TEST-SAVINGS-ACCOUNT-IS-ABSTRACT-TYPE_RESULTS: "${{steps.abstraction-and-interface-test-savings-account-is-abstract-type.outputs.result}}"
+        ABSTRACTION-AND-INTERFACE-TEST-SAVINGS-ACCOUNT-IMPLEMENTS-ONLINE-SERVICE_RESULTS: "${{steps.abstraction-and-interface-test-savings-account-implements-online-service.outputs.result}}"
+        ABSTRACTION-AND-INTERFACE-TEST-CHECKING-ACCOUNT-IMPLEMENTS-ONLINE-SERVICE_RESULTS: "${{steps.abstraction-and-interface-test-checking-account-implements-online-service.outputs.result}}"
+        ABSTRACTION-AND-INTERFACE-TEST-BUSINESS-ACCOUNT-IMPLEMENTS-LOAN-SERVICE_RESULTS: "${{steps.abstraction-and-interface-test-business-account-implements-loan-service.outputs.result}}"
+        ABSTRACTION-AND-INTERFACE-TEST-CARD-POLYMORPHISM_RESULTS: "${{steps.abstraction-and-interface-test-card-polymorphism.outputs.result}}"
+        ABSTRACTION-AND-INTERFACE-TEST-BUSINESS-ACCOUNT-POLYMORPHISM_RESULTS: "${{steps.abstraction-and-interface-test-business-account-polymorphism.outputs.result}}"
+        ABSTRACTION-AND-INTERFACE-TEST-INTERFACES-WITH-CASTING_RESULTS: "${{steps.abstraction-and-interface-test-interfaces-with-casting.outputs.result}}"
+      with:
+        runners: bank-account-test-deposit,bank-account-test-withdraw-valid,bank-account-test-withdraw-invalid-over-balance,bank-account-test-calculate-interest-savings-account,bank-account-test-calculate-interest-checking-account,bank-account-test-calculate-interest-business-account,bank-account-test-transfer-funds,bank-account-test-pay-bills,bank-account-test-loan-application,bank-account-test-polymorphic-account-array,card-test-debit-card-interest-rate,card-test-credit-card-interest-rate,card-test-platinum-card-interest-rate,abstraction-and-interface-test-savings-account-is-abstract-type,abstraction-and-interface-test-savings-account-implements-online-service,abstraction-and-interface-test-checking-account-implements-online-service,abstraction-and-interface-test-business-account-implements-loan-service,abstraction-and-interface-test-card-polymorphism,abstraction-and-interface-test-business-account-polymorphism,abstraction-and-interface-test-interfaces-with-casting
